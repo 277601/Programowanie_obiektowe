@@ -1,0 +1,86 @@
+#include <iostream>
+using namespace std;
+int a,b; 
+
+
+
+double akumulator =0.0;
+
+
+double dodawanie(double a, double b) {
+    cin >> a >> b;
+    akumulator = a + b;
+    return a+b;
+}
+double odejmowanie(double a, double b) {
+    cin >> a >> b;
+    akumulator = a + b;
+    return a-b;
+}
+double mnozenie(double a, double b) {
+    cin >> a >> b;
+    akumulator = a + b;
+    return akumulator;
+}
+double dzielenie(double a, double b) {
+    cin >> a >> b;
+    if (b == 0)
+    {
+        cout << "nie mozna dzielic przez 0!" << endl;
+        return 0;
+    }
+    akumulator = a + b;
+    return akumulator;
+}
+double reszta(double a, double b) {
+    return a - (int)(a / b) * b;
+}
+
+
+int main() {
+    int wybor;
+    cout << "Podaj dwie liczby: ";
+    cout << "Wybierz dzialanie: " << endl;
+    cout << "1. Dodawanie" << endl;
+    cout << "2. Odejmowanie" << endl;
+    cout << "3. Mnozenie" << endl;
+    cout << "4. Dzielenie" << endl;
+    cout << "5. Reszta z dzielenia" << endl;
+    cin >> wybor;
+    double wartosc;
+    
+    
+    switch (wybor) {
+    case 1:
+        cout << "Podaj liczbe: ";
+        cin >> wartosc;
+        cout << "Wynik dodawania: " << dodawanie(wartosc); 
+        break;
+    case 2:
+        cout << "Podaj liczbe: ";
+        cin >> wartosc;
+        cout << "Wynik odejmowania: " << odejmowanie(wartosc) << endl;
+        break;
+    case 3:
+        cout << "Podaj liczbe: ";
+        cin >> wartosc;
+        cout << "Wynik mnozenia: " << mnozenie(wartosc) << endl;
+        break;
+    case 4:
+        cout << "Podaj liczbe: ";
+        cin >> wartosc;
+        cout << "Wynik dzielenia: " << dzielenie(wartosc) << endl;
+        break;
+    case 5:
+        cout << "Podaj liczbe: ";
+        cin >> wartosc;
+        cout << "Reszta z dzielenia: " << reszta(wartosc, wartosc) << endl;
+        break;
+    default:
+        cout << "Nie wybrano opcji!" << endl;
+        break;
+    }
+
+    return 0;
+}
+}
