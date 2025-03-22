@@ -5,40 +5,54 @@ int a,b;
 
 
 double akumulator =0.0;
+double pamiec = 0.0;
 
 
 double dodawanie(double a, double b) {
-    cin >> a >> b;
-    akumulator = a + b;
-    return a+b;
-}
-double odejmowanie(double a, double b) {
-    cin >> a >> b;
-    akumulator = a + b;
-    return a-b;
-}
-double mnozenie(double a, double b) {
-    cin >> a >> b;
+    
     akumulator = a + b;
     return akumulator;
 }
+double odejmowanie(double a, double b) {
+   
+    akumulator = a - b;
+    return akumulator;
+}
+double mnozenie(double a, double b) {
+    
+    akumulator = a * b;
+    return akumulator;
+}
 double dzielenie(double a, double b) {
-    cin >> a >> b;
+
     if (b == 0)
     {
         cout << "nie mozna dzielic przez 0!" << endl;
         return 0;
     }
-    akumulator = a + b;
+    akumulator = a / b;
     return akumulator;
 }
 double reszta(double a, double b) {
     return a - (int)(a / b) * b;
 }
-
+void M_plus(){
+    pamiec += akumulator;
+    cout << 'wartosc dodano do pamieci'<<endl;
+}
+void M_minus(){
+    pamiec -= akumulator;
+    cout << 'wartosc odjeto od pamieci'<<endl;
+}
+void M_clear(){
+    pamiec = 0.0;
+    cout << 'pamiec wyczyszczona'<<endl;
+}
 
 int main() {
+
     int wybor;
+    do {
     cout << "Podaj dwie liczby: ";
     cout << "Wybierz dzialanie: " << endl;
     cout << "1. Dodawanie" << endl;
@@ -46,6 +60,9 @@ int main() {
     cout << "3. Mnozenie" << endl;
     cout << "4. Dzielenie" << endl;
     cout << "5. Reszta z dzielenia" << endl;
+    cout << "6. M+" << endl;
+    cout << "7. M-" << endl;
+    cout << "8. Czysc" << endl;
     cin >> wybor;
     double wartosc;
     
@@ -53,34 +70,50 @@ int main() {
     switch (wybor) {
     case 1:
         cout << "Podaj liczbe: ";
-        cin >> wartosc;
-        cout << "Wynik dodawania: " << dodawanie(wartosc); 
+        cin >> a>>b;
+        cout << "Wynik dodawania: " << dodawanie(a,b); 
         break;
     case 2:
         cout << "Podaj liczbe: ";
-        cin >> wartosc;
-        cout << "Wynik odejmowania: " << odejmowanie(wartosc) << endl;
+        cin >> a>>b;
+        cout << "Wynik odejmowania: " << odejmowanie(a,b) << endl;
         break;
     case 3:
         cout << "Podaj liczbe: ";
-        cin >> wartosc;
-        cout << "Wynik mnozenia: " << mnozenie(wartosc) << endl;
+        cin >> a>>b;
+        cout << "Wynik mnozenia: " << mnozenie(a,b) << endl;
         break;
     case 4:
         cout << "Podaj liczbe: ";
-        cin >> wartosc;
-        cout << "Wynik dzielenia: " << dzielenie(wartosc) << endl;
+        cin >> a>>b;
+        cout << "Wynik dzielenia: " << dzielenie(a,b) << endl;
         break;
     case 5:
         cout << "Podaj liczbe: ";
-        cin >> wartosc;
-        cout << "Reszta z dzielenia: " << reszta(wartosc, wartosc) << endl;
+        cin >> a>>b;
+        cout << "Reszta z dzielenia: " << reszta(a,b) << endl;
+        break;
+    case 6:
+        M_plus();
+        break;
+    case 7:
+        M_minus();
+        break;
+    case 8:
+        M_clear();
         break;
     default:
         cout << "Nie wybrano opcji!" << endl;
         break;
+
     }
+    cout << "Czy chcesz kontynuowac? (t - tak, n - nie): ";
+    cin >> kontynuuj;
+    }
+    while(kontynuuj =="t")
+        
+
+    
 
     return 0;
-}
 }
